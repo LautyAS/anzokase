@@ -1,0 +1,8 @@
+#!/bin/bash
+
+packages_fonts=(
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    ttf-dejavu
+)
