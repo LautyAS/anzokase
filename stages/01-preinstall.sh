@@ -9,6 +9,7 @@ source lib/logging.sh
 source lib/ui.sh
 source lib/utils.sh
 source lib/hardware.sh
+source lib/gpu.sh
 source lib/disks.sh
 source lib/kernels.sh
 

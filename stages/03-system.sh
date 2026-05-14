@@ -147,6 +147,12 @@ systemctl enable NetworkManager
 
 systemctl enable fstrim.timer
 
+#=============================================
+# Repositories database update
+#=============================================
+
+pacman -Sy
+
 EOF
 
 # --------------------------------------------

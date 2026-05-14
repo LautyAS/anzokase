@@ -16,6 +16,8 @@ select_multiple() {
 
     printf "%s\n" "$@" | fzf \
         --multi \
+        --bind 'tab:toggle+down' \
+        --header='TAB para seleccionar múltiples elementos' \
         --height=15 \
         --border \
         --prompt="$prompt → "
