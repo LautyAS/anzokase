@@ -10,6 +10,7 @@ source lib/utils.sh
 source lib/chroot.sh
 source lib/packages.sh
 source lib/gpu.sh
+source lib/aur.sh
 
 # Package groups
 source packages/core.sh

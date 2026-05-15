@@ -185,12 +185,15 @@ CHAOTIC
 fi
 
 # --------------------------------------------
-# Repositories update
+# Repositories update & aur dependencies
 # --------------------------------------------
 
 arch_chroot_run "
-    pacman -Syu --noconfirm
+    pacman -Syu --noconfirm 
 "
+
+install_chroot_packages \
+	"${packages_devtools[@]}"
 
 # --------------------------------------------
 # ZRAM
@@ -228,6 +231,21 @@ if [[ "$ENABLE_UFW" == "true" ]]; then
         systemctl enable ufw
     "
 
+    arch_chroot_run "
+    	ufw default deny incoming
+    "
+
+    arch_chroot_run "
+    	ufw default allow outgoing
+    "
+
+    arch_chroot_run "
+    	ufw --force enable
+    "
+
+    arch_chroot_run "
+    	systemctl enable ufw
+    "
 fi
 
 # --------------------------------------------
@@ -294,22 +312,7 @@ EOF
 
 log "Instalando paru..."
 
-arch-chroot /mnt /bin/bash <<EOF
-set -e
-
-pacman -S rust cargo --noconfirm --needed
-
-su - "$USERNAME" -c "
-    git clone https://aur.archlinux.org/paru.git
-
-    cd paru
-
-    makepkg -si --noconfirm
-"
-
-rm -rf /home/$USERNAME/paru
-
-EOF
+install_aur paru
 
 # --------------------------------------------
 # Final
