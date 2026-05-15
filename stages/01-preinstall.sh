@@ -220,10 +220,20 @@ fi
 # Chaotic-AUR
 # --------------------------------------------
 
-if confirm "¿Habilitar repositorio Chaotic-AUR?"; then
-    ENABLE_CHAOTIC=true
-else
-    ENABLE_CHAOTIC=false
+ENABLE_CHAOTIC=false
+
+for kernel in "${KERNELS[@]}"; do
+    if [[ "$kernel" == "linux-cachyos" ]]; then
+        ENABLE_CHAOTIC=true
+    fi
+done
+
+if [[ "$ENABLE_CHAOTIC" != true ]]; then
+
+    if confirm "¿Habilitar Chaotic-AUR?"; then
+        ENABLE_CHAOTIC=true
+    fi
+
 fi
 
 # --------------------------------------------

@@ -297,6 +297,8 @@ log "Instalando paru..."
 arch-chroot /mnt /bin/bash <<EOF
 set -e
 
+pacman -S rust cargo --noconfirm --needed
+
 su - "$USERNAME" -c "
     git clone https://aur.archlinux.org/paru.git
 
