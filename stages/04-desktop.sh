@@ -19,7 +19,6 @@ source packages/fonts.sh
 source packages/bluetooth.sh
 source packages/gaming.sh
 source packages/printing.sh
-source packages/apps.sh
 
 CONFIG_FILE="/mnt/anzokase/install.conf"
 
@@ -133,15 +132,6 @@ if [[ "$ENABLE_GAMING" == "true" ]]; then
         "${packages_gaming[@]}"
 
 fi
-
-# --------------------------------------------
-# Aplicaciones opcionales
-# --------------------------------------------
-
-log "Instalando aplicaciones adicionales..."
-
-install_chroot_packages \
-    "${packages_apps[@]}"
 
 # --------------------------------------------
 # Drivers GPU

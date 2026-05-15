@@ -147,12 +147,6 @@ systemctl enable NetworkManager
 
 systemctl enable fstrim.timer
 
-#=============================================
-# Repositories database update
-#=============================================
-
-pacman -Sy
-
 EOF
 
 # --------------------------------------------
@@ -189,6 +183,14 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 CHAOTIC
 
 fi
+
+# --------------------------------------------
+# Repositories update
+# --------------------------------------------
+
+arch_chroot_run "
+    pacman -Syu --noconfirm
+"
 
 # --------------------------------------------
 # ZRAM
@@ -296,14 +298,14 @@ arch-chroot /mnt /bin/bash <<EOF
 set -e
 
 su - "$USERNAME" -c "
-    git clone https://aur.archlinux.org/paru-bin.git
+    git clone https://aur.archlinux.org/paru.git
 
-    cd paru-bin
+    cd paru
 
     makepkg -si --noconfirm
 "
 
-rm -rf /home/$USERNAME/paru-bin
+rm -rf /home/$USERNAME/paru
 
 EOF
 

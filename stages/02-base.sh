@@ -181,21 +181,6 @@ mkswap /mnt/swapfile
 swapon /mnt/swapfile
 
 # --------------------------------------------
-# Mirrors
-# --------------------------------------------
-
-log "Actualizando mirrors..."
-
-reflector \
-    --latest 20 \
-    --protocol https \
-    --sort rate \
-    --save /etc/pacman.d/mirrorlist
-
-cp /etc/pacman.d/mirrorlist \
-   /mnt/etc/pacman.d/mirrorlist
-
-# --------------------------------------------
 # Base packages
 # --------------------------------------------
 
