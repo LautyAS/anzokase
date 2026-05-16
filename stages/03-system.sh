@@ -15,6 +15,7 @@ source lib/makepkg.sh
 source lib/aur.sh
 source lib/packages.sh
 source packages/devtools.sh
+source packages/laptop.sh
 
 CONFIG_FILE="/mnt/anzokase/install.conf"
 
@@ -258,14 +259,7 @@ if [[ "$IS_LAPTOP" == "true" ]]; then
 
     log "Configurando optimizaciones para laptop..."
 
-    arch_chroot_run "
-        pacman -S --needed --noconfirm \
-        tlp \
-        thermald \
-        acpi \
-        power-profiles-daemon \
-        upower
-    "
+    install_chroot_packages ${packages_laptop[@]}
 
     arch_chroot_run "
         systemctl enable tlp

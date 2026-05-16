@@ -8,6 +8,7 @@ packages_core=(
     htop
     tree
     jq
+    bash-completion
     unzip
     unrar
     p7zip

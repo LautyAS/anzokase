@@ -5,4 +5,5 @@ packages_fonts=(
     noto-fonts-cjk
     noto-fonts-emoji
     ttf-dejavu
+    unicode-emoji
 )
