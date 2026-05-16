@@ -13,6 +13,8 @@ source lib/bootloader.sh
 source lib/security.sh
 source lib/makepkg.sh
 source lib/aur.sh
+source lib/packages.sh
+source packages/devtools.sh
 
 CONFIG_FILE="/mnt/anzokase/install.conf"
 
