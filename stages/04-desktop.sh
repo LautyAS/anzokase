@@ -180,36 +180,13 @@ esac
 # --------------------------------------------
 # Fuentes AUR
 # --------------------------------------------
-
-log "Instalando fuentes adicionales..."
-
-arch-chroot /mnt /bin/bash <<EOF
-set -e
-
-su - "$USERNAME" -c "
-
-    paru -S --needed --noconfirm \
-        maplemono-nf-unhinted
-"
-
-EOF
+install_aur maplemono-nf-unhinted
 
 # --------------------------------------------
 # Floorp
 # --------------------------------------------
 
-log "Instalando Floorp..."
-
-arch-chroot /mnt /bin/bash <<EOF
-set -e
-
-su - "$USERNAME" -c "
-
-    paru -S --needed --noconfirm \
-        floorp-bin
-"
-
-EOF
+install_aur floorp-bin
 
 # --------------------------------------------
 # Servicios
