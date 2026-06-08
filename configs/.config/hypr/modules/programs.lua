@@ -1,4 +1,4 @@
 terminal    = "kitty"
 fileManager = "thunar"
-menu        = "wofi --show run"
+menu        = "wofi --show drun"
 browser     = "floorp"
