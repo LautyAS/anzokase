@@ -7,10 +7,9 @@ hl.env("TERMINAL", "kitty")
 hl.env("EDITOR", "nvim")
 hl.env("VISUAL", "nvim")
 hl.env("FILE_MANAGER", "thunar")
-hl.env("LIBVA_DRIVER_NAME", "nvidia")
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-hl.env("GBM_BACKEND", "nvidia-drm")
-hl.env("VND_BACKEND", "direct")
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_DATA_DIRS", "/usr/local/share:/usr/share")
 
 -----------------------
 ----- PERMISSIONS -----
