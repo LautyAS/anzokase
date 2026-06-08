@@ -17,16 +17,36 @@ ln -sf "$HYPR/themes/$THEME.conf" "$HYPR/modules/theme.conf"
 if [ "$THEME" = "dark" ]; then
     gsettings set org.gnome.desktop.interface gtk-theme Kimi-dark
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-    kvantummanager --set Kimi-dark
 else
     gsettings set org.gnome.desktop.interface gtk-theme Kimi
     gsettings set org.gnome.desktop.interface color-scheme prefer-light
-    kvantummanager --set Kimi
 fi
 
-# ---------------- QT ----------------
+# ---------------- QT / Kvantum ----------------
 qt6ct_conf="$HOME/.config/qt6ct/qt6ct.conf"
-sed -i 's/^style=.*/style=Fusion/' "$qt6ct_conf"
+kv_conf="$HOME/.config/Kvantum/kvantum.kvconfig"
+
+mkdir -p ~/.config/qt6ct
+mkdir -p ~/.config/Kvantum
+
+if [ "$THEME" = "dark" ]; then
+    KV_THEME="KvGnomeDark"
+else
+    KV_THEME="KvGnome"
+fi
+
+# Configurar qt6ct
+cat > "$qt6ct_conf" <<EOF
+[Appearance]
+style=kvantum
+icon_theme=Papirus
+EOF
+
+# Configurar Kvantum (sin abrir GUI)
+cat > "$kv_conf" <<EOF
+[General]
+theme=$KV_THEME
+EOF
 
 # ---------------- Kitty ----------------
 ln -sf "$KITTY/themes/$THEME.conf" "$KITTY/themes/current.conf"
