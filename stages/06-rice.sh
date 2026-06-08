@@ -45,6 +45,17 @@ log "Copiando configuración de usuario..."
 
 cp -r configs/. "/mnt/home/$USERNAME/"
 
+if [[ "$GPU_VENDOR" == "NVIDIA" ]]; then
+    log "Agregando variables de entorno NVIDIA para Hyprland..."
+    cat >> "$USERHOME/.config/hypr/modules/environment.lua" << EOF
+hl.env("LIBVA_DRIVER_NAME", "nvidia")
+hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+hl.env("GBM_BACKEND", "nvidia-drm")
+hl.env("VND_BACKEND", "direct")
+
+EOF
+fi
+
 # --------------------------------------------
 # Ownership
 # --------------------------------------------
