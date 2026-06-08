@@ -162,16 +162,22 @@ case "$GPU_VENDOR" in
     NVIDIA)
 
         log "Configurando NVIDIA..."
-
-        # TODO:
-        # Detectar automáticamente Turing+
-        # para usar nvidia-open
+        GPU_NAME=$(lspci | grep -Ei "VGA|3D" | grep -i nvidia)
+        if echo "$GPU_NAME" | grep -Eq "RTX 20|RTX 30|RTX 40|RTX 50"; then
+            NVIDIA_PACKAGE="nvidia-open-dkms"
+        else
+            NVIDIA_PACKAGE="nvidia-dkms"
+        fi
 
         install_chroot_packages \
-            nvidia-dkms \
+            "$NVIDIA_PACKAGE" \
             nvidia-utils \
             nvidia-settings \
             lib32-nvidia-utils
+
+        hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+        hl.env("XDG_SESSION_TYPE", "wayland")
+        hl.env("XDG_DATA_DIRS", "/usr/local/share:/usr/share")
 
         ;;
 
