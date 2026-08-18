@@ -4,6 +4,7 @@ packages_core=(
     sudo
     git
     reflector
+    pacman-contrib
     fastfetch
     htop
     tree
