@@ -20,6 +20,7 @@ source packages/fonts.sh
 source packages/bluetooth.sh
 source packages/gaming.sh
 source packages/printing.sh
+source packages/filesystem.sh
 
 CONFIG_FILE="/mnt/anzokase/install.conf"
 
@@ -69,9 +70,10 @@ arch_chroot_run "
 
 log "Instalando paquetes base del escritorio..."
 
-install_chroot_packages "${packages_core[@]}" 
-install_chroot_packages "${packages_hyprland[@]}" 
-install_chroot_packages "${packages_audio[@]}" 
+install_chroot_packages "${packages_core[@]}"
+install_chroot_packages "${packages_hyprland[@]}"
+install_chroot_packages "${packages_filesystem[@]}"
+install_chroot_packages "${packages_audio[@]}"
 install_chroot_packages "${packages_fonts[@]}"
 
 # --------------------------------------------
