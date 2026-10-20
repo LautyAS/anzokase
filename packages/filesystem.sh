@@ -12,6 +12,7 @@ packages_filesystem=(
     gvfs-smb
     gvfs-nfs
     udiskie
+    thunar
     thunar-volman
     sshfs
     file-roller
