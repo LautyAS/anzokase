@@ -31,4 +31,6 @@ packages_hyprland=(
     qt6-wayland
 
     ly
+
+    imagemagic
 )
