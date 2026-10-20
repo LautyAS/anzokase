@@ -69,11 +69,10 @@ arch_chroot_run "
 
 log "Instalando paquetes base del escritorio..."
 
-install_chroot_packages \
-    "${packages_core[@]}" \
-    "${packages_hyprland[@]}" \
-    "${packages_audio[@]}" \
-    "${packages_fonts[@]}"
+install_chroot_packages "${packages_core[@]}" 
+install_chroot_packages "${packages_hyprland[@]}" 
+install_chroot_packages "${packages_audio[@]}" 
+install_chroot_packages "${packages_fonts[@]}"
 
 # --------------------------------------------
 # Bluetooth
@@ -175,10 +174,6 @@ case "$GPU_VENDOR" in
             nvidia-settings \
             lib32-nvidia-utils
 
-        hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
-        hl.env("XDG_SESSION_TYPE", "wayland")
-        hl.env("XDG_DATA_DIRS", "/usr/local/share:/usr/share")
-
         ;;
 
 esac
@@ -186,11 +181,16 @@ esac
 # --------------------------------------------
 # Fuentes AUR
 # --------------------------------------------
-install_aur maplemono-nf-unhinted
+install_aur maplemono maplemono-nf
 
 # --------------------------------------------
 # Floorp
 # --------------------------------------------
+
+install_chroot_packages \
+imagemagik \
+hyphen \
+speech-dispatcher
 
 install_aur floorp-bin
 
