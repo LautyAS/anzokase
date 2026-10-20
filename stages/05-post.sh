@@ -117,6 +117,7 @@ arch_chroot_run "
 
 log "Configurando PipeWire realtime..."
 
+mkdir /mnt/etc/security/limits.d/
 cat > /mnt/etc/security/limits.d/99-realtime.conf <<EOF
 @audio   -  rtprio     95
 @audio   -  memlock    unlimited
