@@ -5,7 +5,7 @@ packages_hyprland=(
 
     kitty
     foot
-    fuzzel
+    wofi
     dunst
 
     quickshell
