@@ -8,6 +8,8 @@ set -e
 source lib/logging.sh
 source lib/utils.sh
 source lib/chroot.sh
+source lib/packages.sh
+source lib/aur.sh
 
 CONFIG_FILE="/mnt/anzokase/install.conf"
 
@@ -40,6 +42,8 @@ fi
 # --------------------------------------------
 # Instalar temas
 # --------------------------------------------
+
+install_chroot_packages inkscape python optipng
 
 install_aur vimix-icon-theme
 install_aur kimi-dark-gtk-theme-git
