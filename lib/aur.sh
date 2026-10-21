@@ -54,7 +54,8 @@ if (( ${#pkgfiles[@]} == 0 )); then
 fi
 
 for pkgfile in "${pkgfiles[@]}"; do
-    pkgname=$(pacman -Qp --print-format '%n' "$pkgfile")
+    pkgname=$(bsdtar -xOf "$pkgfile" .PKGINFO |
+        awk -F ' = ' '$1 == "pkgname" { print $2; exit }')
 
     if [[ "$pkgname" == "$target_pkg" ]]; then
         selected+=( "$pkgfile" )
