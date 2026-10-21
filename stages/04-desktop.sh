@@ -190,7 +190,7 @@ install_aur maplemono maplemono-nf
 # --------------------------------------------
 
 install_chroot_packages \
-imagemagik \
+imagemagick \
 hyphen \
 speech-dispatcher
 
