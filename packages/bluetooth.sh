@@ -5,5 +5,5 @@ packages_bluetooth=(
     bluez-utils
     blueman
     libldac
-    libldac-aac
+    libfdk-aac
 )
