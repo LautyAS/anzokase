@@ -38,6 +38,14 @@ if [[ ! -d "configs" ]]; then
 fi
 
 # --------------------------------------------
+# Instalar temas
+# --------------------------------------------
+
+install_aur vimix-icon-theme
+install_aur kimi-dark-gtk-theme-git
+install_aur kimi-theme-git
+
+# --------------------------------------------
 # Copiar configuración
 # --------------------------------------------
 
@@ -81,6 +89,15 @@ find "/mnt/home/$USERNAME/.config" \
     -type f \
     \( -name "*.sh" -o -name "*.py" \) \
     -exec chmod +x {} \;
+
+# --------------------------------------------
+# Aplicando icon theme
+# --------------------------------------------
+
+arch-chroot /mnt /bin/bash <<EOF
+set -e
+su - "$USERNAME" -c "gsettings set org.gnome.desktop.interface icon-theme 'Vimix'"
+EOF
 
 # --------------------------------------------
 # Limpiar archivos basura
