@@ -285,24 +285,6 @@ if [[ "$ENABLE_OS_PROBER" == "true" ]]; then
 fi
 
 # --------------------------------------------
-# GRUB
-# --------------------------------------------
-
-log "Instalando GRUB..."
-
-arch-chroot /mnt /bin/bash <<EOF
-set -e
-
-grub-install \
-    --target=x86_64-efi \
-    --efi-directory=/boot/efi \
-    --bootloader-id=GRUB
-
-grub-mkconfig -o /boot/grub/grub.cfg
-
-EOF
-
-# --------------------------------------------
 # Paru
 # --------------------------------------------
 
