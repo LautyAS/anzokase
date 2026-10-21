@@ -13,4 +13,5 @@ packages_core=(
     unzip
     unrar
     p7zip
+    xdg-user-dirs
 )
