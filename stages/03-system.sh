@@ -290,7 +290,7 @@ fi
 
 log "Instalando paru..."
 
-install_aur paru-bin
+install_aur paru
 
 # --------------------------------------------
 # Final
