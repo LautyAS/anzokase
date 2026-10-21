@@ -161,6 +161,24 @@ arch_chroot_run "
 "
 
 # --------------------------------------------
+# GRUB
+# --------------------------------------------
+
+log "Instalando GRUB..."
+
+arch-chroot /mnt /bin/bash <<EOF
+set -e
+
+grub-install \
+    --target=x86_64-efi \
+    --efi-directory=/boot/efi \
+    --bootloader-id=GRUB
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+EOF
+
+# --------------------------------------------
 # Mensaje MOTD
 # --------------------------------------------
 
@@ -176,6 +194,7 @@ Arch Linux + Hyprland
 Minimal, modular and optimized.
 
 EOF
+
 
 # --------------------------------------------
 # Información final
