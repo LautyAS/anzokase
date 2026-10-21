@@ -308,7 +308,7 @@ EOF
 
 log "Instalando paru..."
 
-install_aur paru
+install_aur paru-bin
 
 # --------------------------------------------
 # Final
