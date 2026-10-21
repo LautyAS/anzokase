@@ -156,8 +156,8 @@ arch_chroot_run "
 
 arch_chroot_run "
     mkdir -p /home/$USERNAME/.config/hypr/wallpapers
-    ln -s $HOME/.config/hypr/wallpapers $HOME/Pictures/wallpapers
-    ln -s $HOME/.config/fastfetch/logos $HOME/Pictures/fflogos
+    ln -s /home/$USERNAME/.config/hypr/wallpapers /home/$USERNAME/Pictures/wallpapers
+    ln -s /home/$USERNAME/.config/fastfetch/logos /home/$USERNAME/Pictures/fflogos
 "
 
 # --------------------------------------------
