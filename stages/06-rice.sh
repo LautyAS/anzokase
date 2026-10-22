@@ -90,7 +90,7 @@ cp -a "$RESOURCES/fonts/MapleMono-NF-CN/." \
 install -d /mnt/usr/share/themes
 cp -a "$RESOURCES/themes/Kimi" \
     /mnt/usr/share/themes/
-cp -a "$RESOURCES/themes/Kimi-Dark" \
+cp -a "$RESOURCES/themes/Kimi-dark" \
     /mnt/usr/share/themes/
 
 # Tema de iconos
@@ -99,9 +99,9 @@ cp -a "$RESOURCES/icons/Vimix/." \
     /mnt/usr/share/icons/
 
 # Wallpapers
-install -d "/mnt/home/$USERNAME/Pictures/wallpapers"
+install -d "/mnt/home/$USERNAME/.config/hypr/wallpapers"
 cp -a "$RESOURCES/wallpapers/." \
-    "/mnt/home/$USERNAME/Pictures/wallpapers/"
+    "/mnt/home/$USERNAME/.config/hypr/wallpapers/"
 
 # Actualizar caché de fuentes dentro del sistema instalado
 arch_chroot_run "fc-cache -f"
