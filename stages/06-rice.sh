@@ -69,6 +69,44 @@ EOF
 fi
 
 # --------------------------------------------
+# Instalar recursos de Anzokase
+# --------------------------------------------
+
+RESOURCES="/mnt/tmp/AnzokaseResources"
+
+log "Instalando recursos de Anzokase..."
+
+if [[ ! -d "$RESOURCES" ]]; then
+    error "No se encontró el repositorio de recursos: $RESOURCES"
+    exit 1
+fi
+
+# Maple Mono NF CN
+install -d /mnt/usr/share/fonts/MapleMono-NF-CN
+cp -a "$RESOURCES/fonts/MapleMono-NF-CN/." \
+    /mnt/usr/share/fonts/MapleMono-NF-CN/
+
+# Temas GTK
+install -d /mnt/usr/share/themes
+cp -a "$RESOURCES/themes/Kimi" \
+    /mnt/usr/share/themes/
+cp -a "$RESOURCES/themes/Kimi-Dark" \
+    /mnt/usr/share/themes/
+
+# Tema de iconos
+install -d /mnt/usr/share/icons
+cp -a "$RESOURCES/icons/Vimix/." \
+    /mnt/usr/share/icons/
+
+# Wallpapers
+install -d "/mnt/home/$USERNAME/Pictures/wallpapers"
+cp -a "$RESOURCES/wallpapers/." \
+    "/mnt/home/$USERNAME/Pictures/wallpapers/"
+
+# Actualizar caché de fuentes dentro del sistema instalado
+arch_chroot_run "fc-cache -f"
+
+# --------------------------------------------
 # Ownership
 # --------------------------------------------
 
