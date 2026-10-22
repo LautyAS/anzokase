@@ -183,7 +183,7 @@ esac
 # --------------------------------------------
 # Fuentes AUR
 # --------------------------------------------
-install_aur maplemono maplemono-nf
+#install_aur maplemono maplemono-nf
 
 # --------------------------------------------
 # Floorp
@@ -195,6 +195,22 @@ hyphen \
 speech-dispatcher
 
 install_aur floorp-bin
+
+# --------------------------------------------
+# Rice resources
+# --------------------------------------------
+
+log "Descargando recursos de Anzokase..."
+
+mkdir -p /mnt/tmp
+
+if [[ ! -d /mnt/tmp/AnzokaseResources/.git ]]; then
+    git clone \
+        https://github.com/LautyAS/AnzokaseResources.git \
+        /mnt/tmp/AnzokaseResources
+else
+    log "Los recursos de Anzokase ya están descargados."
+fi
 
 # --------------------------------------------
 # Servicios
