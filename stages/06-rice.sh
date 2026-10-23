@@ -145,11 +145,15 @@ find "/mnt/home/$USERNAME/.config" \
 # --------------------------------------------
 # Configuración GTK
 # --------------------------------------------
+
 log "Configurando preferencias GTK..."
 
 arch-chroot /mnt /usr/bin/runuser -u "$USERNAME" -- \
-    /usr/bin/env HOME="/home/$USERNAME" \
-    XDG_CONFIG_HOME="/home/$USERNAME/.config" \
+    /usr/bin/env \
+        -u DBUS_SESSION_BUS_ADDRESS \
+        -u XDG_RUNTIME_DIR \
+        HOME="/home/$USERNAME" \
+        XDG_CONFIG_HOME="/home/$USERNAME/.config" \
     /usr/bin/dbus-run-session -- /bin/sh -c '
         set -e
 
@@ -163,7 +167,8 @@ arch-chroot /mnt /usr/bin/runuser -u "$USERNAME" -- \
         gsettings get org.gnome.desktop.interface icon-theme
         gsettings get org.gnome.desktop.interface font-name
         gsettings get org.gnome.desktop.interface color-scheme
-
+    '
+    
 # --------------------------------------------
 # Limpiar archivos basura
 # --------------------------------------------
