@@ -43,7 +43,7 @@ fi
 # Instalar temas
 # --------------------------------------------
 
-install_chroot_packages inkscape python optipng
+#install_chroot_packages inkscape python optipng
 
 #install_aur vimix-icon-theme
 #install_aur kimi-dark-gtk-theme-git
@@ -133,13 +133,26 @@ find "/mnt/home/$USERNAME/.config" \
     -exec chmod +x {} \;
 
 # --------------------------------------------
-# Aplicando icon theme
+# Configuración GTK
 # --------------------------------------------
+log "Configurando preferencias GTK..."
 
-arch-chroot /mnt /bin/bash <<EOF
-set -e
-su - "$USERNAME" -c "gsettings set org.gnome.desktop.interface icon-theme 'Vimix'"
-EOF
+arch-chroot /mnt /usr/bin/runuser -u "$USERNAME" -- \
+    /usr/bin/env HOME="/home/$USERNAME" \
+    XDG_CONFIG_HOME="/home/$USERNAME/.config" \
+    /usr/bin/dbus-run-session -- /bin/sh -c '
+        set -e
+
+        gsettings set org.gnome.desktop.interface gtk-theme "Kimi-dark"
+        gsettings set org.gnome.desktop.interface icon-theme "Vimix"
+        gsettings set org.gnome.desktop.interface font-name "Maple Mono NF CN 11"
+        gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+
+        echo "Preferencias GTK guardadas:"
+        gsettings get org.gnome.desktop.interface gtk-theme
+        gsettings get org.gnome.desktop.interface icon-theme
+        gsettings get org.gnome.desktop.interface font-name
+        gsettings get org.gnome.desktop.interface color-scheme
 
 # --------------------------------------------
 # Limpiar archivos basura
