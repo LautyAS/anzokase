@@ -107,6 +107,16 @@ cp -a "$RESOURCES/wallpapers/." \
 arch_chroot_run "fc-cache -f"
 
 # --------------------------------------------
+# Symlinks
+# --------------------------------------------
+
+arch_chroot_run "
+    ln -s /home/$USERNAME/.config/hypr/wallpapers /home/$USERNAME/Pictures/wallpapers
+    ln -s /home/$USERNAME/.config/fastfetch/logos /home/$USERNAME/Pictures/fflogos
+"
+
+
+# --------------------------------------------
 # Ownership
 # --------------------------------------------
 

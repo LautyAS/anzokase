@@ -151,16 +151,6 @@ arch_chroot_run "
 "
 
 # --------------------------------------------
-# Symlinks
-# --------------------------------------------
-
-arch_chroot_run "
-    mkdir -p /home/$USERNAME/.config/hypr/wallpapers
-    ln -s /home/$USERNAME/.config/hypr/wallpapers /home/$USERNAME/Pictures/wallpapers
-    ln -s /home/$USERNAME/.config/fastfetch/logos /home/$USERNAME/Pictures/fflogos
-"
-
-# --------------------------------------------
 # Ownership configs
 # --------------------------------------------
 
