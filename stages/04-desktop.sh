@@ -73,7 +73,21 @@ log "Instalando paquetes base del escritorio..."
 install_chroot_packages "${packages_core[@]}"
 install_chroot_packages "${packages_hyprland[@]}"
 install_chroot_packages "${packages_filesystem[@]}"
-install_chroot_packages "${packages_audio[@]}"
+#install_chroot_packages "${packages_audio[@]}"
+#install_chroot_packages "${packages_fonts[@]}"
+
+log "Instalando audio..."
+declare -p packages_audio
+sleep 5
+if install_chroot_packages "${packages_audio[@]}"; then
+    log "La llamada de instalación de audio terminó con código 0."
+else
+    error "La instalación de audio falló con código $?"
+    exit 1
+fi
+sleep 5
+log "Instalando fuentes..."
+declare -p packages_fonts
 install_chroot_packages "${packages_fonts[@]}"
 
 # --------------------------------------------
