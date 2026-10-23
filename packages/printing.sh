@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages_audio=(
+packages_printing=(
     cups
     system-config-printer
     simple-scan
