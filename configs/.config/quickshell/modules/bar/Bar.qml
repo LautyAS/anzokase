@@ -46,25 +46,25 @@ PanelWindow {
         color: Backend.Theme.bg
         opacity: 1
 	
-	Row {
-	    id: leftSide
-	    anchors {
-		left: parent.left
-		verticalCenter: parent.verticalCenter
-		leftMargin: 8
-	    }
+		Row {
+	    	id: leftSide
+	    	anchors {
+				left: parent.left
+				verticalCenter: parent.verticalCenter
+				leftMargin: 8
+	    	}
 
-	    spacing: 8
+	    	spacing: 8
 
-	    Workspaces {}
-	    WindowTitle {}
+	    	Workspaces {}
+	    	WindowTitle {}
     	}
 	
-	Item {
-	    width: 1
-	    height: 1
-	    Layout.fillWidth: true
-	}
+		Item {
+	    	width: 1
+	    	height: 1
+	    	Layout.fillWidth: true
+		}
 
         Row {
             id: rightSide
@@ -76,41 +76,46 @@ PanelWindow {
                 rightMargin: 10
             }
 
-	    Updates {}
+	    	Updates {}
 
-	    Theme {}
-	    Wallpaper {}
-	    //Mode {}
+	    	Theme {}
+	    	Wallpaper {}
+	    	//Mode {}
 
-	    System {}
+	    	System {}
 
-	    Battery {}
+	    	Battery {}
 
-	    Brightness {
-    		visible: Backend.BrightnessData.hasBrightness
-	    }
+	    	Brightness {
+    			visible: Backend.BrightnessData.hasBrightness
+	    	}
 	    
-	    Item {
-		width: 1
-		height: 1
-	    }
+	    	Item {
+				width: 1
+				height: 1
+	    	}
 
-	    Volume {}
+	    	Volume {}
 
-	    Item {
-		width: 1
-		height: 1
-	    }
+	    	Item {
+				width: 1
+				height: 1
+	    	}
 
-	    Tray {
-		panelWindow: panel
-	    }
+	    	Tray {
+				panelWindow: panel
+	    	}
 
-	    Clock {}
+	    	Item {
+				width: 1
+				height: 1
+	    	}
 
-	    PowerMenu {
-    		onToggleMenu: powerMenu.visible = !powerMenu.visible
-	    }
-	}
+	    	Clock {}
+
+	    	PowerMenu {
+    			onToggleMenu: powerMenu.visible = !powerMenu.visible
+	    	}
+		}
     }
 }
