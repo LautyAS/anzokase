@@ -1,4 +1,5 @@
 //@ pragma UseQApplication
+//@ pragma IconTheme Vimix
 
 import QtQuick
 import Quickshell
