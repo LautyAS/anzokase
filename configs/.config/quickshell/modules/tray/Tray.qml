@@ -7,7 +7,7 @@ Row {
 
     property var panelWindow
 
-    spacing: 8
+    spacing: 5
     anchors.verticalCenter: parent.verticalCenter
 
     Repeater {
@@ -16,8 +16,8 @@ Row {
 	delegate: Image { 
 	    required property var modelData 
 
-	    width: 18 
-	    height: 18 
+	    width: 20 
+	    height: 20 
 	    anchors.verticalCenter: parent.verticalCenter 
 
 	    source: modelData.icon 
