@@ -267,6 +267,16 @@ else
 fi
 
 # --------------------------------------------
+# MOZC
+# --------------------------------------------
+
+if confirm "¿Instalar soporte mozc (japonés)?"; then
+    ENABLE_MOZC=true
+else
+    ENABLE_MOZC=false
+fi
+
+# --------------------------------------------
 # Printing
 # --------------------------------------------
 
@@ -315,6 +325,7 @@ echo "Chaotic-AUR:        $ENABLE_CHAOTIC"
 echo "Bluetooth:          $ENABLE_BLUETOOTH"
 echo "ZRAM:               $ENABLE_ZRAM"
 echo "Gaming:             $ENABLE_GAMING"
+echo "Japanese"		  $ENABLE_MOZC
 echo "Printing:           $ENABLE_PRINTING"
 echo "Flatpak:            $ENABLE_FLATPAK"
 echo "Firewall:           $ENABLE_UFW"
@@ -371,6 +382,7 @@ ENABLE_BLUETOOTH="$ENABLE_BLUETOOTH"
 ENABLE_CHAOTIC="$ENABLE_CHAOTIC"
 ENABLE_ZRAM="$ENABLE_ZRAM"
 ENABLE_GAMING="$ENABLE_GAMING"
+ENABLE_MOZC="$ENABLE_MOZC"
 ENABLE_PRINTING="$ENABLE_PRINTING"
 ENABLE_FLATPAK="$ENABLE_FLATPAK"
 ENABLE_UFW="$ENABLE_UFW"

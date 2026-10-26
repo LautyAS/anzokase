@@ -21,6 +21,7 @@ source packages/bluetooth.sh
 source packages/gaming.sh
 source packages/printing.sh
 source packages/filesystem.sh
+source packages/mozc.sh
 
 CONFIG_FILE="/mnt/anzokase/install.conf"
 
@@ -73,21 +74,7 @@ log "Instalando paquetes base del escritorio..."
 install_chroot_packages "${packages_core[@]}"
 install_chroot_packages "${packages_hyprland[@]}"
 install_chroot_packages "${packages_filesystem[@]}"
-#install_chroot_packages "${packages_audio[@]}"
-#install_chroot_packages "${packages_fonts[@]}"
-
-log "Instalando audio..."
-declare -p packages_audio
-sleep 5
-if install_chroot_packages "${packages_audio[@]}"; then
-    log "La llamada de instalación de audio terminó con código 0."
-else
-    error "La instalación de audio falló con código $?"
-    exit 1
-fi
-sleep 5
-log "Instalando fuentes..."
-declare -p packages_fonts
+install_chroot_packages "${packages_audio[@]}"
 install_chroot_packages "${packages_fonts[@]}"
 
 # --------------------------------------------
@@ -150,6 +137,19 @@ if [[ "$ENABLE_GAMING" == "true" ]]; then
 fi
 
 # --------------------------------------------
+# MOZC
+# --------------------------------------------
+
+if [[ "$ENABLE_MOZC" == "true" ]]; then
+
+    log "Instalando soporte MOZC..."
+
+    install_chroot_packages \
+        "${packages_mozc[@]}"
+
+fi
+
+# --------------------------------------------
 # Drivers GPU
 # --------------------------------------------
 
@@ -193,11 +193,6 @@ case "$GPU_VENDOR" in
         ;;
 
 esac
-
-# --------------------------------------------
-# Fuentes AUR
-# --------------------------------------------
-#install_aur maplemono maplemono-nf
 
 # --------------------------------------------
 # Floorp

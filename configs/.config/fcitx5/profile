@@ -2,27 +2,21 @@
 # Group Name
 Name=Default
 # Layout
-Default Layout=us-intl
+Default Layout=us-alt-intl
 # Default Input Method
-DefaultIM=keyboard-latam
+DefaultIM=mozc
 
 [Groups/0/Items/0]
 # Name
-Name=keyboard-us-intl
+Name=keyboard-us-alt-intl
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/1]
 # Name
-Name=keyboard-latam
-# Layout
-Layout=
-
-[Groups/0/Items/2]
-# Name
 Name=mozc
 # Layout
-Layout=
+# Layout=
 
 [GroupOrder]
 0=Default

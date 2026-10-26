@@ -40,16 +40,6 @@ if [[ ! -d "configs" ]]; then
 fi
 
 # --------------------------------------------
-# Instalar temas
-# --------------------------------------------
-
-#install_chroot_packages inkscape python optipng
-
-#install_aur vimix-icon-theme
-#install_aur kimi-dark-gtk-theme-git
-#install_aur kimi-theme-git
-
-# --------------------------------------------
 # Copiar configuración
 # --------------------------------------------
 
